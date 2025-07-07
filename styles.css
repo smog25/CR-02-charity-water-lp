@@ -365,6 +365,42 @@ a {
   border: 2px solid #239df7;
 }
 
+/* Fade and slide-in transitions for hero and impact sections */
+
+/* Start hidden and moved */
+.hero-left,
+.hero-right,
+.impact-image-container,
+.impact-text-container {
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
+}
+
+/* Hero text slides up, hero image slides in from right */
+.hero-left {
+  transform: translateY(40px);
+}
+.hero-right {
+  transform: translateX(40px);
+}
+
+/* Impact image slides in from left, text slides in from right */
+.impact-image-container {
+  transform: translateX(-40px);
+}
+.impact-text-container {
+  transform: translateX(40px);
+}
+
+/* When loaded, fade and slide into place */
+body.loaded .hero-left,
+body.loaded .hero-right,
+body.loaded .impact-image-container,
+body.loaded .impact-text-container {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
 /* --- Responsive adjustments for new sections --- */
 @media (max-width: 900px) {
   .impact-story {
