@@ -24,175 +24,382 @@ Fonts:
 */
 
 /* Set up the main font and background color for the whole page */
+/* Base styles */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif; /* changed to Work Sans */
   margin: 0;
   padding: 0;
-  color: #222;
+  background-color: #fff;
+  color: #333;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: flex-start; /* left align items */
+  align-items: center;
+  background-color: #fff5e1;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
+/* Add padding to the logo to push nav items left */
+.nav-left {
+  padding-right: 3rem; /* increased space between logo and nav links */
+}
+
+.nav-left .logo {
+  height: 28px; /* reduced from 40px */
+}
+
+/* Increase spacing and make navbar links all caps */
+.nav-center {
+  display: flex;
+  gap: 3rem;
+  margin-left: 0; /* remove margin since logo now has padding */
+}
+
+.nav-center a {
+  font-weight: 600;
+  font-size: 0.95rem;
   letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  text-transform: uppercase; /* all caps */
 }
 
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto; /* push nav-right to the far right */
 }
 
-/* Story Section Styles */
+.divider {
+  height: 24px;
+  width: 1px;
+  background-color: #1a1a1a; /* updated color */
+}
+
+.join-button {
+  background-color: #bf6c46;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase; /* all caps */
+  letter-spacing: 1px;
+  transition: background 0.2s;
+}
+
+/* Darken join button on hover */
+.join-button:hover {
+  background-color: #a55a2f;
+}
+
+/* Hero section layout */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: #007c91;
+  padding: 3rem 2rem;
+  color: white;
+  flex-wrap: wrap;
+  min-height: 70vh; /* ensure enough vertical space for image */
+}
+
+/* Space the text on the left more and make the box wider */
+.hero-left {
+  flex: 3; /* make the left side even wider */
+  padding-right: 1.5rem; /* decrease space between text and image */
+  padding-left: 2rem;
+  min-width: 320px;
+  max-width: none; /* allow it to grow with the screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center text */
+}
+
+.hero-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+  text-transform: uppercase; /* all caps */
+  color: #fff;
+}
+
+.hero-left p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* CTA button: make smaller and left aligned */
+.cta-button {
+  display: inline-block;
+  background-color: #fcd202;
+  color: black;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem; /* smaller padding */
+  border-radius: 25px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem; /* slightly smaller font */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+  align-self: flex-start; /* keep button left aligned with text */
+}
+
+/* Darken CTA button on hover */
+.cta-button:hover {
+  background-color: #e6b800;
+}
+
+.learn-more {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.donation-message,
+.community-text {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hero right image: align image to the right and fill blue space vertically */
+.hero-right {
+  flex: 2 1 50%; /* make the right side a bit smaller */
+  display: flex;
+  justify-content: flex-end; /* align image to the right */
+  align-items: stretch;
+  min-width: 200px;
+  max-width: 50vw; /* about half the viewport width */
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: 900px;
+  height: 100%;         /* fill vertical space */
+  min-height: 300px;    /* ensure image is not too short */
+  object-fit: cover;    /* cover the area */
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* --- Story Section Styles --- */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
+  background-color: #fff7e1;
+  padding: 3rem 2rem;
+  color: #333;
+}
+
+.story-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 2rem;
+  padding-right: 1.5rem;
+}
+
+.story h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a; /* keep Our Story header dark */
+  margin-bottom: 1rem;
   text-align: center;
-  padding: 30px 20px;
+  text-transform: uppercase;
 }
 
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+.story p {
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
+/* --- Impact Story Section Styles --- */
+.impact-story {
+  background-color: #8bd1cb;
   color: #222;
-  text-align: center;
-  padding: 30px 20px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Style the impact story image */
+/* Container for the image only, aligned left */
+.impact-image-container {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 420px;
+  min-width: 320px;
+  max-width: 420px;
+  margin-right: 10rem; /* move divider closer to center */
+}
+
 .impact-image {
   width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  height: 300px;
+  min-height: 220px;
+  /* Adjust framing to show a bit lower in the image */
+  object-fit: cover;
+  object-position: 50% 20%; /* move framing down slightly */
+  background-color: transparent;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
-/* Donate Button Styles */
+/* Container for the header and text, aligned right */
+.impact-text-container {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 480px;
+}
+
+.impact-story h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #fff7e1; /* Impact header light yellow */
+  text-align: right;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  text-transform: uppercase;
+}
+
+.impact-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.impact-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+  min-width: 220px;
+  text-align: right;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Impact section divider between image and text */
+.impact-divider {
+  width: 1px;
+  height: 220px;
+  background-color: #1a1a1a;
+  margin: 0 2rem;
+  align-self: center;
+}
+
+/* --- Call to Action Section Styles --- */
+.call-to-action {
+  background-color: #ffc907;
+  color: #333;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.call-to-action h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #1a1a1a; /* changed to dark */
+  text-transform: uppercase;
+}
+
+.call-to-action p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Donate button: blue background, white on hover */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
+  background-color: #239df7;
   color: #fff;
-  padding: 14px 32px;
+  font-weight: 700;
+  padding: 0.7rem 2rem;
+  border-radius: 25px;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
+  border: 2px solid #239df7;
 }
 
-/* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  background-color: #fff;
+  color: #239df7;
+  border: 2px solid #239df7;
 }
 
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
-}
-
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
-
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
+/* --- Responsive adjustments for new sections --- */
+@media (max-width: 900px) {
+  .impact-story {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
   }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
+  .impact-image-container {
+    width: 100%;
+    max-width: 320px;
+    min-width: 0;
+    margin-right: 0;
+    margin-bottom: 1.2rem;
+    justify-content: center;
   }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
+  .impact-image {
+    height: 180px;
   }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
+  .impact-text-container {
+    align-items: center;
+    max-width: 100%;
   }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
+  .impact-story h2,
+  .impact-content p {
     text-align: center;
+    align-items: center;
+    max-width: 100%;
   }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
+  .story-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-}
-
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .impact-image {
-    width: 300px;
+  .impact-divider {
+    width: 60px;
+    height: 1px;
+    margin: 1.2rem 0;
   }
 }
